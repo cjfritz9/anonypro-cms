@@ -11,8 +11,6 @@ export default defineConfig({
   projectId: 'vvw86v5i',
   dataset: 'production',
 
-  basePath: '/studio',
-
   plugins: [structureTool(), visionTool()],
 
   schema: {
