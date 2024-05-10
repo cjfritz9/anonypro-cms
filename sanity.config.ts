@@ -1,4 +1,3 @@
-//@ts-nocheck
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
@@ -12,6 +11,16 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
+
+  document: {
+    newDocumentOptions: (schemas, {currentUser}) => {
+      if (currentUser?.id !== 'pN0pAgxIk') {
+        return schemas.filter(({templateId}: {templateId: string}) => templateId !== 'admin')
+      } else {
+        return schemas
+      }
+    },
+  },
 
   schema: {
     types: schemaTypes,

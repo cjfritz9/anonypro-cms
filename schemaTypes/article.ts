@@ -19,6 +19,17 @@ const article = {
       },
     },
     {
+      name: 'metaTitle',
+      title: 'Meta Title',
+      type: 'string',
+      validation: (rule: any) => rule.required(),
+    },
+    {
+      name: 'metaDesc',
+      title: 'Meta Description',
+      type: 'string',
+    },
+    {
       name: 'category',
       title: 'Category',
       type: 'string',
@@ -29,12 +40,16 @@ const article = {
             value: 'story-viewer',
           },
           {
-            title: 'Post Highlights',
-            value: 'post-highlights',
+            title: 'Glossary',
+            value: 'glossary',
           },
           {
-            title: 'Creating Posts',
-            value: 'creating-posts',
+            title: 'Instagram Captions',
+            value: 'instagram-captions',
+          },
+          {
+            title: 'Quotes',
+            value: 'quotes',
           },
         ],
         layout: 'radio',
@@ -77,6 +92,16 @@ const article = {
       of: [
         {
           type: 'block',
+          marks: {
+            decorators: [
+              {title: 'Strong', value: 'strong'},
+              {title: 'Emphasis', value: 'em'},
+              {title: 'Code', value: 'code'},
+            ],
+          },
+        },
+        {
+          type: 'image',
         },
       ],
       validation: (rule: any) => rule.required(),
